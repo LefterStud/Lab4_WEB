@@ -1,0 +1,73 @@
+body {
+    margin: 0;
+}
+
+.add_note {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #333;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+    position: fixed;
+    top: 30px;
+    right: 30px;
+}
+
+.add_note:hover {
+    background-color: #000;
+    color: #c8c8c8;
+}
+
+.notes_area {
+    background-color: #eee;
+    height: 800px;
+    position: relative;
+}
+
+.notes_area .note {
+    position: absolute;
+    width: 220px;
+    height: 275px;
+    background-color: #000000;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    justify-content: flex-end
+}
+
+.notes_area .note hr {
+    width: 100%;
+    margin: 0;
+}
+
+.notes_area .note textarea {
+    resize: none;
+    color: #fff;
+    background: #373737;
+    border: none;
+    outline: none;
+    font-size: 20;
+}
+
+.notes_area .note .note_title {
+    width: 100%;
+    height: 15%;
+    padding: 5px;
+    padding-top: 9px;
+}
+
+.notes_area .note .note_text {
+    width: 100%;
+    height: 75%;
+    padding: 5px;
+}
+
+.notes_area .note .note_title:focus {
+    border-radius: 0;
+}

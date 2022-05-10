@@ -1,8 +1,6 @@
 const $notes_area = document.querySelector('.notes_area');
 const $add_note = document.querySelector('.add_note');
 
-let noteTitle = '';
-let noteText = '';
 let note_hold = false;
 const NotesAreaWidth = $notes_area.offsetWidth;
 const NotesAreaHeight = $notes_area.offsetHeight;

@@ -29,14 +29,12 @@ function getLS(key) {
     return JSON.parse(localStorage.getItem(key));
 }
 
+let selectedForInputNoteNumber = null;
 $notes_area.addEventListener('input', function (e) {
-    if (e.target.classList.contains('note_title')) {
-        $selectedTitle = e.target;
-        notes[selectedNoteNumber].title = $selectedTitle.value;
-    }
     if (e.target.classList.contains('note_text')) {
-        $selectedText = e.target;
-        notes[selectedNoteNumber].text = $selectedText.value;
+        $selectedTitle = e.target;
+        selectedForInputNoteNumber = e.target.getAttribute('data-index');
+        notes[selectedForInputNoteNumber].text = $selectedTitle.value;
     }
     setLS('info', notes);
 });
@@ -45,7 +43,7 @@ $notes_area.addEventListener('input', function (e) {
 function noteGen(info) {
     let temp = '';
     for (let i = 0; i < info.length; i++) {
-        temp += '<div class="note" style="left: ' + info[i].x + 'px; top: ' + info[i].y + 'px;" data-index="' + i + '"><textarea class="note_title" placeholder="Note">' + info[i].title + '</textarea> <hr> <textarea class="note_text" placeholder="Text...">' + info[i].text + '</textarea></div>'
+        temp += '<div class="note" style="left: ' + info[i].x + 'px; top: ' + info[i].y + 'px;" data-index="' + i + '"><textarea class="note_text" placeholder="Text..." data-index="' + i + '">' + info[i].text + '</textarea></div>'
     }
     $notes_area.innerHTML = temp;
     noteWidth = document.querySelector('.note').offsetWidth;
@@ -55,7 +53,6 @@ $add_note.addEventListener('click', function () {
     notes.push({
         x: 0,
         y: 0,
-        title: "",
         text: ""
     });
     noteGen(notes);
